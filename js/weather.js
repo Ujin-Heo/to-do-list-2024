@@ -8,7 +8,11 @@ function onGeoOk(location) {
         const weather = document.querySelector(".weather__weather");
         const temp = document.querySelector(".weather__temp");
         const city = document.querySelector(".weather__city");
-        weather.innerText = data.weather[0].main;
+        const weatherIcon = document.createElement("img");
+        weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        weatherIcon.style.width = "75px";
+        weatherIcon.style.height = "75px";
+        weather.appendChild(weatherIcon);
         temp.innerText = `${data.main.temp}℃`;
         city.innerText = data.name;
     });
@@ -19,3 +23,4 @@ function onGeoError() {
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+        

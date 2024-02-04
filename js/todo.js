@@ -10,11 +10,26 @@ function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-function deleteToDo(event){
+function deleteToDo(event) {
     const li = event.target.parentElement;
-    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
+    toDos = toDos.filter(toDo => parseInt(toDo.id) !== parseInt(li.id));
     saveToDos();
     li.remove();
+}
+
+function crossOutToDo(event) {
+    const li = event.target.parentElement;
+    li.classList.toggle("done");
+    function handleCrossOut(toDo) {
+        const id = parseInt(li.id);
+        if(toDo.id === id) {
+            toDo.id = toDo.id + "_done";
+        } else if (toDo.id === id + "_done") {
+            toDo.id = id;
+        };
+    };
+    toDos.forEach(handleCrossOut);
+    saveToDos();
 }
 
 function paintToDo(newTodoObj) {
@@ -22,12 +37,19 @@ function paintToDo(newTodoObj) {
     li.id = newTodoObj.id;
     const span = document.createElement("span");
     span.innerText = newTodoObj.text;
-    const button = document.createElement("button");
-    button.innerText = "❌";
-    button.addEventListener("click", deleteToDo);
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "❌";
+    deleteBtn.addEventListener("click", deleteToDo);
+    const crossOutBtn = document.createElement("button");
+    crossOutBtn.innerText = "✅";
+    crossOutBtn.addEventListener("click", crossOutToDo);
     toDoList.appendChild(li);
+    li.appendChild(crossOutBtn)
     li.appendChild(span);
-    li.appendChild(button);
+    li.appendChild(deleteBtn);
+    if (li.id[li.id.length - 1] === "e") {
+        li.classList.add("done");
+    };
 }
 
 function handleToDoSubmit(event) {

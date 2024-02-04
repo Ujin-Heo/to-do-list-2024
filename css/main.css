@@ -22,6 +22,7 @@ input, .greeting {
 input {
     border-bottom: 0.6vh solid whitesmoke;
     opacity: 0.6;
+    text-align: center;
 }
 
 input:focus {
@@ -53,4 +54,12 @@ input::placeholder {
     background-color: transparent;
     border: none;
     padding-top: 1.5vh;
+}
+
+.done {
+    opacity: 0.6;
+}
+
+.done span {
+    text-decoration: line-through;
 }
