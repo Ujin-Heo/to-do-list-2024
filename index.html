@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <h2 class="clock">00:00</h2>
+        <form class="login-form hidden">
+            <input class="login-form__input" required maxlength="15" type="text" placeholder="What is your name?" />
+        </form>
+        <h1 class="greeting hidden"></h1>
+        <form class="todo-form">
+            <input class="todo-form__input" type="text" placeholder="Write a To Do and Press Enter." required />
+        </form>
+        <ul class="todo-list"></ul>
+    </main>
+    
+    <div class="quote">
+        <span class="quote__quote"></span>
+        <span class="quote__author"></span>
+    </div>
+
+    <div class="weather">
+        <div class="weather__row">
+            <span class="weather__weather"></span>
+            <span class="weather__temp"></span>
+        </div>
+        <div class="weather__row">
+            <span class="weather__city"></span>
+        </div>
+    </div>
+
+    <form class="reset"><button class="reset__Btn">🔄️</button></form>
+
+    <script src="js/app.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+</body>
+</html>

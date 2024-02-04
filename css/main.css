@@ -1,0 +1,56 @@
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock {
+    font-size: 23vh;
+    margin-bottom: 10vh;
+}
+
+input, .greeting {
+    color:inherit;
+    font-size: 9vh;
+    margin-bottom: 5vh;
+    border: none;
+    background-color: transparent;
+}
+
+input {
+    border-bottom: 0.6vh solid whitesmoke;
+    opacity: 0.6;
+}
+
+input:focus {
+    opacity: 1;
+}
+
+input::placeholder {
+    color: white;
+    text-shadow: 1px 1.5px 2px black;
+}
+
+.todo-form__input {
+    font-size: 5vmin;
+    width: 40vw;
+}
+
+.todo-list li{
+    margin-bottom: 1.5vh;
+    display: flex;
+    align-items: center;
+}
+
+.todo-list li span {
+    font-size: 4vmin;
+    text-shadow: var(--main-text-shadow);
+}
+
+.todo-list li button {
+    background-color: transparent;
+    border: none;
+    padding-top: 1.5vh;
+}
